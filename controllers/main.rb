@@ -41,20 +41,23 @@ end
 
 #edit users
 get "/users/:id/edit" do
-
+  @edited_user = User.find(:id)
 end
 
 
 
 #update users
 put "/users/:id" do
-
+  @updated_user = User.find(:id)
+  @new_password = BCrypt::Password.create(params["new_password"])
+  @updated_user.save({email: params["email"], password: @new_password})
 end
 
 
 
-#show users
+#show user
 get "/users/:id" do
-
+  @user = User.find(:id)
+  erb :"users/show"
 end
 
