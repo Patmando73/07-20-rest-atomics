@@ -1,6 +1,7 @@
 #list users
 get "/users" do
-
+  @user_array = User.all
+  erb :"users"
 end
 
 
