@@ -9,7 +9,7 @@ get "/users" do
   @users = User.all
   json_array = []
   @users.each do |d|
-    json_array << d.json_format
+    json_array << d.as_json
   end
   json json_array
 end
@@ -27,7 +27,8 @@ end
 post "/users" do
   @password = BCrypt::Password.create(params["password"])
   @new_user = User.create({email: params["email"], password: @password})
-  json @new_user.json_format
+
+  json @new_user.as_json
 end
 
 
