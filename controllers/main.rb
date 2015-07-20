@@ -35,21 +35,21 @@ end
 
 #delete user
 delete "/users/:id" do
-  @deleted_user = User.delete(:id) #if variable doesn't store info - store info with find method
+  @deleted_user = User.delete(params["id"]) #if variable doesn't store info - store info with find method
 end
 
 
 
 #edit users
 get "/users/:id/edit" do
-  @edited_user = User.find(:id)
+  @edited_user = User.find(params["id"])
 end
 
 
 
 #update users
 put "/users/:id" do
-  @updated_user = User.find(:id)
+  @updated_user = User.find(params["id"])
   @new_password = BCrypt::Password.create(params["new_password"])
   @updated_user.save({email: params["email"], password: @new_password})
 end
@@ -58,7 +58,7 @@ end
 
 #show user
 get "/users/:id" do
-  @shown_user = User.find(:id)
+  @shown_user = User.find(params["id"])
   json @shown_user.as_json
 end
 

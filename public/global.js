@@ -34,7 +34,8 @@ function showUsers(event) {
     var request = new XMLHttpRequest();
     var route = '/users';
     request.open('get', route);
-    request.addEventListener('load', function () {
+
+    request.addEventListener('load', function() {
         document.getElementById('list-of-users').innerText = '';
         for (var i = 0; i < this.response.length; i++) {
             var user = this.response[i];
@@ -47,26 +48,36 @@ function showUsers(event) {
             Li.appendChild(newLi);
             document.getElementById(newLiId).onclick = showThisUser;
         }
+    });
     request.responseType = "json";
     request.send();
-    });
 }
 
 document.getElementById('list-users-link').onclick = showUsers;
 
 function showThisUser() {
     var request = new XMLHttpRequest();
-    var route = '/users/' + this.dataId;
+    var route = '/users/' + this.id;
     request.open('get', route);
     request.addEventListener('load', function(){
+        var user = this.response;
         document.getElementById('list-of-users').innerText = '';
-        var user = this.response[0];
-        var newLi = document.createElement('a');
-        newLi.innerText = "Modify " + user.email;
-        newLi.href = "/users/"+ user.id +"/edit";
-        var newLi = document.createElement('a');
-        newLi.innerText = "Delete " + user.email;
-        newLi.href = "/users/"+ user.id;
+
+
+        var modifyUser = document.createElement('a');
+        modifyUser.innerText = "Modify " + user.email;
+        modifyUser.href = "/users/"+ user.id +"/edit";
+        var theUl = document.getElementById('list-of-users');
+        theUl.appendChild(modifyUser);
+        //document.getElementById(newLiId).onclick = modifyTheUser;
+
+        var deleteUser = document.createElement('a');
+        deleteUser.innerText = "Delete " + user.email;
+        deleteUser.href = "/users/"+ user.id;
+        var theUl = document.getElementById('list-of-users');
+        theUl.appendChild(deleteUser);
+        //document.getElementById(newLiId).onclick = deleteTheUser;
+
     });
     request.responseType = "json";
 
