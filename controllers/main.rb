@@ -58,7 +58,7 @@ end
 
 #show user
 get "/users/:id" do
-  @user = User.find(:id)
-  erb :"users/show"
+  @shown_user = User.find(:id)
+  json @shown_user.as_json
 end
 
