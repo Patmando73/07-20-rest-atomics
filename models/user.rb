@@ -1,2 +1,6 @@
-class User
+
+
+class User <  ActiveRecord::Base
+  include BCrypt
+
 end
