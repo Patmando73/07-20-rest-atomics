@@ -18,6 +18,13 @@ end
 
 #new user
 get "/users/new" do
+  erb :"users/new"
+end
+
+
+
+#create user
+post "/users" do
   @password = BCrypt::Password.create(params["password"])
   @new_user = User.create({email: params["email"], password: @password})
   json @new_user.json_format
@@ -25,16 +32,9 @@ end
 
 
 
-#create user
-post "/users" do
-
-end
-
-
-
 #delete user
 delete "/users/:id" do
-
+  @deleted_user = User.delete(:id) #if variable doesn't store info - store info with find method
 end
 
 
