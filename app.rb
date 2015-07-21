@@ -5,7 +5,6 @@ require 'bundler/setup'
 
 
 require 'sinatra'
-require 'sqlite3'
 require 'bcrypt'
 require 'pry'
 require 'active_record'
