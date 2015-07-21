@@ -1,5 +1,5 @@
 /**
- * Created by Patmando73 on 7/20/15.
+ * Created by Patmando73 and Samuel Stephen on 7/20/15.
  */
 
 
@@ -7,6 +7,7 @@
 function goHome() {
     window.location.replace("/home");
 }
+
 var logo = document.getElementById('logo');
 logo.addEventListener('click', goHome);
 
@@ -25,7 +26,6 @@ function hideModal() {
 
 var close = document.getElementById('close');
 close.addEventListener('click', hideModal);
-
 
 
 
@@ -76,6 +76,7 @@ function showThisUser() {
     request.responseType = "json";
 
     request.send();
+
 }
 
 

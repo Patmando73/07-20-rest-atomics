@@ -1,0 +1,15 @@
+<form action="/stories" method="post">
+  <h6>Add Story</h6>
+  <p>Title - <input type="text" name="title" required></p>
+  <p>Content - <input type="text" name="content" required></p>
+  <label>Select a User to assign to this Story</label>
+  <% i = 1 %>
+  <% User.all.each do |user| %>
+      <div class="btn-container">
+        <input type="radio" name="user_id" value="<%= user.id %>">
+        <label><%= user.email %></label>
+      </div>
+      <% i += 1 %>
+  <% end %>
+  <input type="submit" value="Create new story">
+</form>
