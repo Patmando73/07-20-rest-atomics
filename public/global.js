@@ -63,40 +63,16 @@ function showThisUser() {
     request.addEventListener('load', function(){
         var user = this.response;
         document.getElementById('list-of-users').innerText = '';
-
-       // var deleteUser = document.getElementById('list-of-users');
         user_id = user.id;
-
         $("#list-of-users").append("<form method='post' id='delete-form'>delete<input type='hidden' name='_method' value='delete'><input type='submit'> </form>");
-
         deleteForm =  document.getElementById("delete-form");
-
         deleteForm.action = "/users/" + user.id;
 
-        //var modifyUserInput1 = document.createElement("input");
-        //var modifyUserInput2 = document.createElement("input");
-        //modifyUserInput1.type = "radio";
-        //modifyUserInput1.name = "thing";
-        //modifyUserInput1.value = "modify - " + user.email;
-        //modifyUserInput2.type = "hidden";
-        //modifyUserInput2.name = "_method";
-        //modifyUserInput2.value = "put";
-        //modifyUser.input = modifyUserInput1;
-        //modifyUser.input = modifyUserInput2;
-        //modifyUser.innerText = "Modify " + user.email;
-        //modifyUser.href = "/users/"+ user.id +"/edit";
-        //var theUl = document.getElementById('list-of-users');
-        //theUl.appendChild(deleteUser);
-        //document.getElementById(newLiId).onclick = modifyTheUser;
-
-        //var deleteUser = document.createElement('a');
-        //deleteUser.innerText = "Delete " + user.email;
-        //deleteUser.href = "/users/"+ user.id;
-        //var theUl = document.getElementById('list-of-users');
-        //theUl.appendChild(deleteUser);
-        //document.getElementById(newLiId).onclick = deleteTheUser;
-
+        $("#list-of-users").append("<form method='get' id='modify-form'>modify<input type='submit'> </form>");
+        modifyForm =  document.getElementById("modify-form");
+        modifyForm.action = "/users/" + user.id + "/edit";
     });
+
     request.responseType = "json";
 
     request.send();
