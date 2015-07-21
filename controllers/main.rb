@@ -53,6 +53,7 @@ put "/users/:id" do
   @updated_user = User.find(params["id"])
   @new_password = BCrypt::Password.create(params["new_password"])
   @updated_user.save({email: params["email"], password: @new_password})
+  erb :"users/home"
 end
 
 
