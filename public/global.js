@@ -64,15 +64,14 @@ function showThisUser() {
         document.getElementById('list-of-users').innerText = '';
 
 
+        var modifyUser = document.getElementById('list-of-users');
+        taco = user.id;
 
-        var modifyUser = document.createElement('a');
-        modifyUser.innerText = "modify " + user.email;
-        modifyUser.href = "/users/"+ user.id + "/edit";
-        var theUl = document.getElementById('list-of-users');
-        theUl.appendChild(modifyUser);
+        $("#list-of-users").append("<form method='post' id='formyform'> <input type = 'radio' name = 'thing' value = 'taco'>modify<input type='hidden' name='_method' value='put'><input type='submit'> </form>");
 
+        formyform =  document.getElementById("formyform")
 
-
+        formyform.action = "/users/" + user.id + "/edit";
 
         //var modifyUserInput1 = document.createElement("input");
         //var modifyUserInput2 = document.createElement("input");
@@ -86,15 +85,15 @@ function showThisUser() {
         //modifyUser.input = modifyUserInput2;
         //modifyUser.innerText = "Modify " + user.email;
         //modifyUser.href = "/users/"+ user.id +"/edit";
-        //var theUl = document.getElementById('list-of-users');
-        //theUl.appendChild(modifyUser);
+        var theUl = document.getElementById('list-of-users');
+        theUl.appendChild(modifyUser);
         //document.getElementById(newLiId).onclick = modifyTheUser;
 
         var deleteUser = document.createElement('a');
         deleteUser.innerText = "Delete " + user.email;
         deleteUser.href = "/users/"+ user.id;
-        var theUl2 = document.getElementById('list-of-users');
-        theUl2.appendChild(deleteUser);
+        var theUl = document.getElementById('list-of-users');
+        theUl.appendChild(deleteUser);
         //document.getElementById(newLiId).onclick = deleteTheUser;
 
     });
