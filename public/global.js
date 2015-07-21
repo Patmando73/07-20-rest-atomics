@@ -64,9 +64,23 @@ function showThisUser() {
         document.getElementById('list-of-users').innerText = '';
 
 
-        var modifyUser = document.createElement('a');
-        modifyUser.innerText = "Modify " + user.email;
-        modifyUser.href = "/users/"+ user.id +"/edit";
+        var modifyUser = document.getElementById('list-of-users');
+
+        $("#list-of-users").append("<form><input type = 'radio' name = 'thing' value = 'taco'>modify<input type='hidden' name='_method' value='put'><input type='submit'> </form>");
+
+
+        //var modifyUserInput1 = document.createElement("input");
+        //var modifyUserInput2 = document.createElement("input");
+        //modifyUserInput1.type = "radio";
+        //modifyUserInput1.name = "thing";
+        //modifyUserInput1.value = "modify - " + user.email;
+        //modifyUserInput2.type = "hidden";
+        //modifyUserInput2.name = "_method";
+        //modifyUserInput2.value = "put";
+        //modifyUser.input = modifyUserInput1;
+        //modifyUser.input = modifyUserInput2;
+        //modifyUser.innerText = "Modify " + user.email;
+        //modifyUser.href = "/users/"+ user.id +"/edit";
         var theUl = document.getElementById('list-of-users');
         theUl.appendChild(modifyUser);
         //document.getElementById(newLiId).onclick = modifyTheUser;

@@ -43,6 +43,7 @@ end
 #edit users
 get "/users/:id/edit" do
   @edited_user = User.find(params["id"])
+  erb :"main/home"
 end
 
 
