@@ -1,4 +1,4 @@
-<form method="post" action = "/users/<%= @edited_user.id %>">
+<form method="post" action="/users/<%= @edited_user.id %>">
     <input type='hidden' name='_method' value='put'>
     <h6>Edit User</h6>
     <p>Email - <input type="text" name="email" value="<%= @edited_user.email %>" required></p>

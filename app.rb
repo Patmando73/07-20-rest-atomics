@@ -35,8 +35,9 @@ end
 ActiveRecord::Base.logger = ActiveSupport::Logger.new(STDOUT)
 
 require_relative 'database_setup.rb'
-require_relative 'controllers/main'
 require_relative 'models/user'
+require_relative 'controllers/main'
+require_relative 'controllers/user_controller'
 
 
 
