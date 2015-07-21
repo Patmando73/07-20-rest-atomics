@@ -11,7 +11,8 @@
 document.getElementById("submitter").addEventListener("click", addUser);
 
 function addUser(event) {
-    // event.preventDefault();
+
+    event.preventDefault();
 
     // creates variable containing the form
     var form = document.getElementById("new-user-form");
@@ -30,5 +31,7 @@ function addUser(event) {
         var confirm = this.response.email + " has been registered!";
         $("#confirm")[0].style.display = 'block';
         $("#confirm")[0].innerText = confirm;
+
+
     });
 }
