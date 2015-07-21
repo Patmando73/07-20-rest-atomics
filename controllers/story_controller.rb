@@ -53,6 +53,9 @@ end
 
 #show story
 get "/stories/:id" do
-  @shown_story = Story.find(params["id"])
+  @shown_story = Story.find_by_user_id(params["id"])
+  binding.pry
+
+
   json @shown_story.as_json
 end
